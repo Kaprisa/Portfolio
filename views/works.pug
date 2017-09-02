@@ -1,0 +1,67 @@
+extends layout.pug
+
+block page
+	include partials/preloader.pug
+	include partials/header.pug
+	section.works
+		h2.works__title.title.title_big Мои работы
+		.works__slider.slider
+			.slider__description
+				h3.title.slider__name MrBurger
+				span.slider__use html, css, javascript
+				a.btn.slider__link(href="#", target="_blank") Посмотреть сайт
+			.slider__main
+				ul.slider__list
+					if works
+						each work in works
+							li.slider__item(data-name=work.name, data-use=work.description, data-link= work.link, data-img=`/uploads/${work.photo}`)
+								img.slider__img(src=`/uploads/${work.photo}` alt= work.name)
+			.slider__controls
+				.slider__controls_prev
+					.slider__wrapper
+						span.slider__image_next
+						span.slider__image_current
+						.slider__arrow.slider__arrow_prev
+							include ../public/images/icons/arrow_down.svg
+				.slider__controls_next
+					.slider__wrapper
+						span.slider__image_current
+						span.slider__image_next
+						.slider__arrow.slider__arrow_next
+							include ../public/images/icons/arrow_up.svg
+		.works__main(style="background-image: url(/images/bg-ground.jpg)")
+			.works__wrapper
+				.works__reviews.reviews
+					h2.title.title_big.reviews__title 
+						|Что обо мне 
+						br
+						|говорят
+					ul.reviews__list
+						li.reviews__item
+							img.reviews__img(src="/images/photo1.png", alt="Фото")
+							p.reviews__text  Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+							.reviews__author
+								b.reviews__name Ковальчук Дмитрий
+								span.reviews__description — основатель Loftschool
+						li.reviews__item
+							img.reviews__img(src="/images/photo2.png", alt="Фото")
+							p.reviews__text  Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!! 
+							.reviews__author
+								b.reviews__name Зар Захаров
+								span.reviews__description — главный преподаватель
+				.works__callback.callback
+					h3.title.callback__title Связаться со мной
+					form.callback__form(action="/contact")
+						input.callback__input(id="name", type="text", name="name", placeholder="Имя", required)
+						input.callback__input(id="email", type="text", name="email", placeholder="Email", required)
+						textarea.callback__message(name="message", placeholder="Ваше сообщение", required)
+						.callback__btn-group
+							button.callback__btn.callback__btn-group_submit(type="submit") Отправить
+							button.callback__btn.callback__btn-group_reset(type="reset") Очистить
+				.arrow-up
+					include ../public/images/icons/arrow_up.svg
+			include partials/footer.pug
+
+
+
+

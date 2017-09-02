@@ -1,0 +1,45 @@
+extends layout
+
+block page
+	include partials/panel
+	include partials/header
+	main.profile
+		section.profile.profile__section
+			h2.title.title_50 Редактировать профиль
+			form.profile__form#profile-form(action='/admin/profile', method='POST')
+				//label.profile__label(for='email')
+					span.profile__text Почта
+					input.profile__input(type='email', name='email', id='email', value=(user ? user.email : ''))
+				label.profile__label(for='name') 
+					span.profile__text Имя
+					input.profile__input(type='text', name='name', id='name', value=(user && user.profile ? user.profile.name : ''))
+				label.profile__label.radio-group 
+					span.profile__text Пол
+					label.radio-group__item Мужской
+						input.profile__input_radio.input_radio(type='radio', checked=(user && user.profile ? user.profile.gender === 'male' : false), name='gender', value='male')
+					label.radio-group__item Женский
+						input.profile__input_radio.input_radio(type='radio', checked=(user && user.profile ? user.profile.gender === 'female' : false), name='gender', value='female')
+				label.profile__label(for='location') 
+					span.profile__text Место жительства
+					input.profile__input(type='text', name='location', id='location', value=(user && user.profile ? user.profile.location : ''))
+				//label.profile__label.profile-file Загрузить картинку
+					svg.profile-file__icon
+						include ../../public/images/icons/file.svg
+					input.profile-file__input(type='file', name='photo', id='photo', value=(user ? user.photo : ''))
+				button.btn(type='submit') Обновить профиль 
+		section.profile__section(action='/account/password', method='POST')
+			h2.title.title_50 Изменить пароль
+			form.profile__form
+				label.profile__label(for='password') 
+					span.profile__text Новый пароль
+					input.profile__input(type='password', name='password', id='password')
+				label.profile__label(for='confirmPassword') 
+					span.profile__text Подтвердить пароль
+					input.profile__input(type='password', name='confirmPassword', id='confirmPassword')
+				button.btn(type='submit') Изменить пароль
+		section.profile__section(action='/account/delete', method='POST')
+			h2.title.title_50 Удалить аккаунт
+			form.profile__form(action="/admin/delete",method="POST")
+				p.profile__text Вы можете удалить ваш аккаунт, но затем, вы не сможете восстановить вашу информацию
+				button.btn(type='submit')  Удалить аккаунт
+

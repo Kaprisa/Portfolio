@@ -1,0 +1,345 @@
+@import "../_tools/common"
+@import "../_partials/admin-header"
+
+.admin
+	background-color: #f4f5f0
+	&__top-line
+		display: flex
+		justify-content: space-between
+		padding: 20px 30px
+		background-color: $accent-color
+	&__title
+		color: #fff
+		font-size: 20px
+		font-weight: 600
+		line-height: 32px
+	&__back
+		color: #fff
+		opacity: .7
+		text-decoration: underline
+		transition: opacity .3s ease
+		&:hover
+			opacity: 1
+	&-navigation
+		&__list
+			display: flex
+		&__item
+			flex: 1 1 auto
+			background-color: #e1e4d7
+			transition: background-color .3s ease
+			text-align: center
+			&:hover, &_active
+				background-color: transparent
+		&__link
+			color: $foreground-color
+			transition: color .3s ease
+			text-transform: uppercase
+			line-height: 47px
+			font-weight: 600
+			&:hover, &_active
+				color: $accent-color
+	&__input-text
+		display: block
+		width: 100%
+		max-width: 300px
+		height: 32px
+		margin-bottom: 20px
+		padding: 0 17px
+		border-right: 5px
+		background-color: #fff
+		&_small
+			display: inline
+			width: 45px
+			height: 32px
+			padding: 0 5px
+			text-align: center
+			margin-right: 2px
+			margin-bottom: 0
+		&_textarea
+			max-width: 600px
+			height: 250px
+			padding: 10px 17px
+			resize: none
+	&-tabs
+		padding: 25px 10px
+		&__title
+			color: #373e42
+			font-weight: 600
+			margin-right: 30px
+			&_1
+				margin-bottom: 20px
+				font-size: 21px
+			&_2
+				margin-bottom: 15px
+		&__section
+			display: inline-block
+			margin-bottom: 25px
+			margin-right: 60px
+			&:last-child
+				margin-right: 0
+	&-skills
+		td
+			padding: 4px 16px
+	&-file
+		position: relative
+		display: block
+		min-height: 34px
+		margin-bottom: 20px
+		padding-left: 40px
+		transition: color .25s ease
+		color: $accent-color
+		cursor: pointer
+		&__icon
+			position: absolute
+			top: 0
+			left: 0
+			width: 35px
+			height: 34px
+			stroke: #f4f5f0
+			stroke-width: 1px
+			opacity: .7
+			transition: opacity .3 ease
+			path
+				fill: $accent-color	
+				opacity: .7
+			&:hover
+				opacity: 1
+		&:hover
+			color: darken($accent-color, 10%)
+			&__icon
+				opacity: 1
+		&__input
+			position: absolute
+			opacity: 0
+	&-blog
+		&-add
+			box-sizing: border-box
+			position: relative
+			flex-basis: 50%
+			max-width: 50%
+		&__categories
+			box-sizing: border-box
+			flex-basis: 50%
+			max-width: 50%
+	&-tags
+		margin-bottom: 55px
+		&__holder
+			display: flex
+			flex-wrap: wrap
+			align-items: flex-start
+			justify-content: flex-start
+			position: absolute
+			top: 0
+			left: 350px
+			padding: 10px
+			max-height: 170px
+			height: 125px
+			width: 230px
+			max-width: 300px
+			border-radius: 20px
+			background-color: #fff
+			overflow: hidden
+		&__item	
+			position: relative
+			padding: 7px 10px
+			padding-right: 20px
+			margin-right: 5px
+			margin-bottom: 5px
+			background-color: $accent-color
+			border-radius: 10px
+			color: #fff
+			cursor: pointer
+			&::after
+				content: 'x'
+				position: absolute
+				top: 50%
+				margin-top: -6px
+				right: 2px
+				width: 13px
+				height: 13px
+				line-height: 13px
+				font-size: 13px
+				text-align: center
+				border-radius: 50%
+				background-color: $accent-color
+				color: rgba(#fff, .6)
+				transition: background-color .3s ease
+				transition: color .3s ease
+			&:hover
+				&::after
+					background-color: #fff
+					color: #777
+
+
+.article-categories
+	display: flex
+	flex-wrap: wrap
+	align-items: flex-start
+	max-width: 50%
+	background-color: #fff
+	padding: 20px
+	height: 400px
+	max-height: 800px
+	border-radius: 20px
+	&__item
+		padding: 8px 15px
+		border-radius: 15px
+		background-color: $accent-color
+		margin-right: 10px
+		transition: background-color .3s ease
+		cursor: pointer
+		&:hover
+			background-color: lighten($accent-color, 10%)
+	&__title
+		color: #fff
+		font-size: 20px
+		line-height: 20px
+		text-align: center
+	&__count
+		color: rgba(#fff, .6)
+		font-size: 13px
+	&__popup
+		.btn-close
+			top: 10%
+			right: 20%
+
+
+.admin-articles
+	position: absolute
+	top: 10%
+	left: 20%
+	right: 20%	
+	padding: 10px
+	border-radius: 5px
+	background-color: $background-color
+	text-align: center
+	&__category
+		text-align: center
+		font-size: 20px
+		margin-bottom: 15px
+	&__item
+		display: flex
+		padding: 5px 0
+		justify-content: space-between
+		align-items: center
+		border-bottom: 1px solid rgba(#000, .15)
+	&__title
+		flex-basis: 50%
+		max-width: 50%
+		font-size: 20px
+		text-align: left
+	&__dates
+		text-align: left
+	&__date
+		display: block
+		font-size: 13px
+		color: rgba(#000, .5)
+	&__button
+		margin-top: 30px
+
+.admin-works
+	&-add
+		flex-basis: 50%
+	&__list
+		flex-basis: 50%
+	&__item
+		display: flex
+		justify-content: space-between
+		align-items: center
+		position: relative
+		width: 60%
+		background-color: #fff
+		border-radius: 20px
+		height: 20px
+		margin-bottom: 10px
+		padding: 10px
+		padding-left: 50px
+		overflow: hidden
+		&::before, &::after
+			position: absolute
+			content: ''
+		&::before
+			top: 0
+			bottom: 0
+			left: 0
+			width: 30px
+			background-color: $accent-color
+		&::after
+			top: 50%
+			margin-top: -7px
+			left: 5px
+			width: 10px
+			height: 10px
+			border-radius: 50%
+			border: 2px solid #fff
+
+.btn_update-skills
+	display: inline-block
+	svg
+		width: 30px
+		height: 30px
+		cursor: pointer
+
+.btn_remove-skill
+	display: inline-block
+	position: relative
+	width: 35px
+	height: 35px
+	border-radius: 50%
+	background-color: $accent-color
+	transition: background-color .3s ease
+	cursor: pointer
+	&:hover
+		background-color: darken($accent-color, 5%)
+	&::before, &::after
+		content: ''
+		position: absolute
+		top: 50%
+		left: 50%
+		margin-top: -2px
+		margin-left: -12px
+		height: 4px
+		width: 24px
+		background-color: #fff
+	&::before
+		transform: rotate(-45deg)
+	&::after
+		transform: rotate(45deg)
+
+
+
+.admin-skills__popup	
+	.btn-close
+		top: 10%
+		right: 20%	
+
+.skills-editor
+	position: absolute
+	top: 10%
+	left: 20%
+	right: 20%	
+	padding: 10px 5%
+	border-radius: 5px
+	background-color: $background-color
+	text-align: center
+	&__title
+		font-size: 20px
+		margin-bottom: 15px
+	&__wrapper, &__item
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&__wrapper
+		margin-bottom: 20px
+	&__item
+		margin-bottom: 10px
+		&:last-child
+			margin-bottom: 30px
+	&__label
+		text-align: left
+	&__input
+		margin-left: 15px
+		flex-basis: 60%
+		&_small
+			flex-basis: 20%
+

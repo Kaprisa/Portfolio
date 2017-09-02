@@ -1,0 +1,36 @@
+.header
+	height: 100vh
+	overflow: hidden
+	position: relative
+	background-size: cover
+	background-position: 50% 50%
+	background-repeat: no-repeat
+	background-attachment: fixed
+	&::before, &::after
+		content: ''
+		position: absolute
+	&::before
+		background-image: url(/images/icons/portfolio_header.svg)
+		background-repeat: no-repeat
+		background-position: 50% 50%
+		filter: grayscale(100%)
+		opacity: .2
+		top: 100px
+		right: 0
+		left: 0
+		bottom: 150px
+	&__line
+		padding-top: 25px
+		padding-left: 25px
+		margin-bottom: 12%
+	&__author
+		text-align: center
+		z-index: 100
+		backface-visibility: hidden
+
+
+.triangles
+	position: absolute
+	bottom: 0
+	&__item
+		fill: #f4f5f0

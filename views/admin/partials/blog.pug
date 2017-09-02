@@ -1,0 +1,17 @@
+section.admin-tabs__item#blog
+	h3.admin-tabs__title.admin-tabs__title_1 Страница «Блог»
+	h4.admin-tabs__title.admin-tabs__title_2 Добавить запись
+	.flex-container_row
+		include ../components/blogForm
+		if data.categories
+			.admin-blog__categories.article-categories
+				each category in data.categories
+					.article-categories__item(data-name= category._id)
+						h5.article-categories__title= category._id
+						span.article-categories__count= category.count + ' статьи'
+.popup.article-categories__popup
+	.admin-articles(data-category="Frontend")
+		h4.admin-articles__category Frontend
+		ul.admin-articles__list
+		button.admin-articles__button.btn#delete-category(type="button", data-category="Frontend") Удалить категорию
+	button.btn-close(type="button")

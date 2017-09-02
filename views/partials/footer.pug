@@ -1,0 +1,16 @@
+footer.footer
+	.footer__line
+		.footer__description.footer__item Мой персональный сайт.
+		.footer__wrapper.footer__item
+			nav.footer__menu
+				ul.navigation
+					li.navigation__item: a.navigation__link(href="/works") Мои работы
+					li.navigation__item: a.navigation__link(href="/about") Обо мне
+					li.navigation__item: a.navigation__link(href="/blog") Блог
+					li.navigation__item: a.navigation__link(href="/") Авторизация
+			include social.pug
+		.quote.footer__item
+			p.quote__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.
+			span.quote__author - Martin Golding
+	.footer__copyrights
+		span.copyrights © Кузина Ксения | Создано с любовью | 2017

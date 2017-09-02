@@ -1,0 +1,16 @@
+header.admin-header
+	.admin-header__right
+		if user
+			.panel__hide
+				include ../../../public/images/icons/arrow_down.svg
+		.admin-header__logo Kaprisa.com 
+	.admin-header__left
+		if user
+			img.admin-header__img(src=user.gravatar, alt="photo")
+			.admin-header__user.dropdown= (user && user.profile ? user.profile.name : '')
+				ul.dropdown__list
+					li.dropdown__item: a.dropdown__link(href='/account') Аккаунт
+					li.dropdown__item: a.dopdown__link(href='/logout') Выход
+		else
+			ul.admin-header-account
+				li.admin-header-account__item: a.admin-header-account__link.btn.btn_transparent(href='/login') Войти

@@ -1,0 +1,183 @@
+@import "../_tools/common"
+@import "../_partials/author"
+
+.welcome
+	height: 100vh
+	width: 100%
+	display: flex
+	overflow: hidden
+	flex-direction: column
+	justify-content: space-between
+	background-size: calc(100% + 50px)
+	background-position: 50% 50%
+	background-repeat: no-repeat
+	&__top-line
+		box-sizing: border-box
+		padding: 
+			top: 19px
+			right: 23px
+		flex-basis: 15%
+		text-align: right
+	
+	&__main
+		flex-basis: 70%
+	&__hello, &__authorization
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
+		position: absolute
+		left: 50%
+		width: 380px
+		height: 396px
+		margin-left: -190px
+		padding-top: 40px
+		text-align: center
+		border-radius: 5px
+		background-color: rgba(#122620, .6)
+		overflow: hidden
+		transform-style: preserve-3d
+		transition: .6s
+		backface-visibility: hidden
+	&__hello
+		transform: rotateY(0)
+	&__authorization
+		transform: rotateY(-180deg)
+
+	&__footer
+		flex-basis: 5%
+		text-align: center
+
+.btn-authorization
+	border-color: #fff
+	color: #fff
+	&:hover
+		background-color: transparent
+		color: saturate($accent-color, 50%)
+		border-color: saturate($accent-color, 50%)
+
+.nav
+	width: 100%
+	display: flex
+	justify-content: space-between
+	align-items: stretch
+	&__item
+		background-color: rgba($accent-color, .85)
+		flex-grow: 1
+		flex-shrink: 1
+		flex-basis: auto
+		border-right: 1px solid rgba(#fff, .6)
+		transition: background-color .3s ease
+		&:hover
+			background-color: $accent-color
+		&:last-child
+			border-right: none
+	&__link
+		line-height: 45px
+		width: 100%
+		height: 100%
+		color: #fff
+
+.authorization
+	&__title
+		margin-bottom: 45px
+		color: #fff
+		&::after
+			background-color: #fff
+	&__form
+		width: 80%
+	&__label
+		position: relative
+		margin-bottom: 15px
+		color: #fff	
+		&-login, &-password
+			width: 100%
+			height: 45px
+			border-radius: 30px
+			overflow: hidden
+			&::before
+				content: ''
+				position: absolute
+				left: 0
+				top: 0
+				width: 40px
+				height: 100%
+				background-color: #f0efef 
+				background-repeat: no-repeat
+				background-position: 50% 50%
+		&-login
+			&::before
+				background-image: url(/images/icons/login.svg)	
+		&-password
+			&::before
+				background-image: url(/images/icons/password.svg)
+		&-check, &-radio
+			padding-left: 35px
+			opacity: .8
+			&::before
+				content: ''
+				position: absolute
+				top: 50%
+				left: 0
+				margin-top: -12px
+				width: 20px
+				height: 20px
+			&::after
+				content: ''
+				top: 50%
+				left: 5px
+				display: none
+				position: absolute
+			&_active
+				color: $accent-color
+				&::after
+					display: block
+		&-check
+			&::before
+				border-radius: 2px
+				background-color: $accent-color
+			&::after
+				width: 13px
+				height: 8px
+				border: 3px solid transparent
+				border-bottom-color: #fff
+				border-left-color: #fff			
+				margin-top: -14px
+				transform: rotate(-45deg)
+		&-radio
+			margin-right: 20px
+			&::before
+				border-radius: 50%
+				border: 2px solid #fff
+			&::after
+				width: 10px
+				height: 10px
+				margin-top: -5px
+				margin-left: 2px
+				border-radius: 50%
+				background-color: $accent-color
+	&__input
+		width: 100%
+		height: 45px
+		padding-left: 55px
+	&__radio, &__check
+		display: none
+	&__check
+		display: none
+		position: absolute
+		top: 0
+		left: 0
+	&__question
+		display: block
+		color: #fff
+		font-weight: bold
+		opacity: .8
+		margin-bottom: 10px
+	&__navigation
+		width: 100%
+
+@media only screen and (max-width : 480px)
+	.welcome__hello.author
+		left: 0
+		margin-left: 0
+		width: 100%

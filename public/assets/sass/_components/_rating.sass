@@ -1,0 +1,16 @@
+.rating
+	&__stars
+		font-size: 30px
+		color: #666
+	&__reviews
+	&__link
+		color: $accent-color
+		text-decoration: underline
+		transition: color .3s ease
+		font-weight: bold
+		&:first-child
+			margin-right: 5px
+		&:last-child
+			margin-left: 5px
+		&:hover
+			color: darken($accent-color, 7%)

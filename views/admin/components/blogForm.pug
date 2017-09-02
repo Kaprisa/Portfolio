@@ -1,0 +1,12 @@
+//form.admin-blog-add(action=`/article/${ article ? (article._id + '/update') : 'add' }`,method="POST")
+form.admin-blog-add(action='/article/add',method="POST")
+	input.admin__input-text(type="text" name="title" placeholder="Название" value=(article ? article.title : ''))
+	input.admin__input-text(type="text" name="category" placeholder="Категория" value=(article ? article.category : ''))
+	.admin-tags
+		input.admin__input-text(type="text",name="tag",id="tag",placeholder="Тег")
+		.admin-tags__holder
+			if article && article.tags
+				each tag in article.tags
+					span.admin-tags__item= tag
+	textarea.admin__input-text.admin__input-text_textarea(type="text" name="text" placeholder="Содержание" ) #{article ? article.text : ''}
+	button#article-add.btn.admin__button(type="submit" data-id=(article ? article._id : '')) #{article ? 'Обновить' : 'Добавить'}

@@ -1,0 +1,13 @@
+span.admin-tabs__title.admin-tabs__title_2= skillsSection.category
+span.btn_update-skills(data-category= skillsSection.category) 
+	include ../../../public/images/icons/rotate.svg
+table.admin-skills
+	each skill in skillsSection.skills
+		colgroup
+			col.admin-skills__name-col
+			col.admin-skills__percent-col
+		tr
+			td
+				span.admin-skills__name= skill.name
+			td
+				input.admin__input-text.admin__input-text_small.admin-skills__input-text(data-category=skillsSection.category, data-skill=skill.name, value=skill.percent)

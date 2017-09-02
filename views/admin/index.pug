@@ -1,0 +1,21 @@
+extends layout
+
+block page
+	.admin
+		header.admin__header
+			.admin__top-line
+				h2.admin__title Панель администрирования
+				a.admin__back(href="/") Вернуться на сайт
+			- const pages = {'about': 'Обо мне', 'blog': 'Блог', 'works': 'Мои работы'}
+			nav.admin-navigation
+				ul.admin-navigation__list
+					each value, key in pages
+						li.admin-navigation__item(class=(page === key ? 'admin-navigation__item_active' : ''))
+							a.admin-navigation__link(href=`/admin/${key}`)= value
+		main.admin-tabs
+			if page === 'about'
+				include partials/about.pug
+			else if page === 'blog'
+				include partials/blog.pug
+			else if page === 'works'
+				include partials/works.pug

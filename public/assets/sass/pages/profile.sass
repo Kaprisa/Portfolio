@@ -1,0 +1,61 @@
+@import "../_tools/common"
+@import "../_partials/admin-header"
+@import "../_partials/panel"
+
+.profile
+	&__section
+		width: 40%
+		margin: 0 auto
+		margin-bottom: 100px
+		.btn
+			margin-left: 50%
+			transform: translateX(-50%)
+	&__label
+		display: block
+		margin-bottom: 20px
+	&__text
+		display: block
+		margin-bottom: 10px
+		font-size: 18px
+		margin-left: 10px
+	&-file
+		position: relative
+		display: block
+		min-height: 34px
+		margin-bottom: 20px
+		padding-left: 40px
+		transition: color .25s ease
+		color: $accent-color
+		cursor: pointer
+		&__icon
+			position: absolute
+			top: 0
+			left: 0
+			width: 35px
+			height: 34px
+			stroke: #f4f5f0
+			stroke-width: 1px
+			opacity: .7
+			transition: opacity .3 ease
+			path
+				fill: $accent-color	
+				opacity: .7
+			&:hover
+				opacity: 1
+		&:hover
+			color: darken($accent-color, 10%)
+			&__icon
+				opacity: 1
+		&__input
+			position: absolute
+			opacity: 0
+	
+
+
+.radio-group
+	margin-left: 10px
+	&__item
+		display: inline-block
+		position: relative
+		padding-left: 30px
+		margin-right: 5%

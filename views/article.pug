@@ -1,0 +1,18 @@
+extends layout.pug
+
+block page
+	include partials/preloader.pug
+	include partials/header.pug
+	section.article
+		h1.title.title_50.article__title= article.title
+		.article__content
+			.article__text= article.text
+			.article__dates
+				span.article__date Создана: #{h.moment(article.created).format('L')}
+				if article.updated
+					span.article__date Обновлена: #{h.moment(article.updated).format('L')}
+			if article.tags
+				.article__tags
+					each tag in article.tags
+						span.article__tag= tag
+	include partials/footer.pug

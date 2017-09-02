@@ -1,0 +1,12 @@
+header.header(style="background-image: url(/images/bg-forest.jpg)")
+	.header__line
+		include social.pug
+		.header__hamburger.hamburger
+	.header__author.author
+		include author.pug
+	svg.triangles(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 320 28", preserveAspectRatio="xMidYMin slice")
+		polygon.triangles__item(points="0, 0 0, 28 160, 28")
+		polygon.triangles__item(points="320, 0 320, 28 160, 28")
+	.arrow-down
+		include ../../public/images/icons/arrow_down.svg
+	include popup.pug

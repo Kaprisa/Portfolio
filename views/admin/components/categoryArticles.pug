@@ -1,0 +1,10 @@
+if articles
+	each article in articles 
+		li.admin-articles__item
+			h5.admin-articles__title= article.title
+			.admin-articles__dates
+				span.admin-articles__date Создана: #{h.moment(article.created).format('L')}
+				if article.updated
+					span.admin-articles__date Обновлена: #{h.moment(article.updated).format('L')}
+			button.btn.delete-article.btn_small(type="submit", data-id=article._id) Удалить
+			button.btn.update-article.btn_small(type="submit", data-id=article._id) Обновить

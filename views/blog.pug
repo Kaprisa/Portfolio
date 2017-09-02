@@ -1,0 +1,22 @@
+extends layout.pug
+
+block page
+	include partials/preloader.pug
+	include partials/header.pug
+	section.blog
+		aside.blog__sidebar.blog-sidebar
+			ul.blog-sidebar__list
+				if articles
+					each article, index in articles
+						li.blog-sidebar__item: a.blog-sidebar__link(href=`/articles/${article._id}`)= article.title
+			.blog-sidebar__toggle
+		.blog__main
+			if articles
+				each article, index in articles
+					article.blog__article.blog-article
+						header.title.blog-article__title= article.title
+						span.blog-article__time= article.date
+						.blog-article__text= article.text
+						.blog-article__buttons
+							a.btn.btn_small(href=`/articles/${article._id}`) Читать больше
+	include partials/footer.pug				

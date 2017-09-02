@@ -1,0 +1,21 @@
+.arrow-down, .arrow-up
+	position: absolute
+	bottom: 100px
+	left: 50%
+	margin-left: -13px
+	height: 16px
+	width: 26px
+	transition: transform .3s ease-out
+	cursor: pointer
+	svg 
+		width: 100%
+		height: 100%
+
+.arrow-down
+	&:hover
+		transform: translateY(8px) scale(1.2)
+
+.arrow-up
+	bottom: 30px
+	&:hover
+		transform: translateY(-8px) scale(1.2)

@@ -1,0 +1,46 @@
+.title
+	position: relative
+	font-size: 35px
+	line-height: 41px
+	text-align: center
+	font-weight: bold
+	text-transform: uppercase
+	font-family: "sansus", sans-serif
+	color: $foreground-color
+	&::after
+		content: ''
+		position: absolute
+		bottom: -15px
+		right: 43%
+		left: 43%
+		height: 3px
+		background-color: $foreground-color
+	&_big
+		font-size: 63px
+		line-height: 66px
+		padding: 50px
+		color: #373e42
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			filter: grayscale(100%) 
+			background-position: 50% 50%
+			background-repeat: no-repeat
+			background-size: 50% 70%
+			opacity: .15
+		&::after
+			top: 80%	
+			background-color: #373e42
+	&_50
+		margin-bottom: 50px
+
+@media only screen and (max-width : 768px)
+	.title_big
+		font-size: 40px
+
+
+	

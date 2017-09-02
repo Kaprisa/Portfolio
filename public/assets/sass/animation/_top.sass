@@ -1,0 +1,41 @@
+@keyframes from-center-to-top
+	0%
+		top: 0
+	100%
+		top: -100%
+
+@keyframes from-center-to-bottom
+	0%
+		top: 0
+	100%
+		top: 100%
+
+@keyframes from-bottom-to-center
+	0%
+		top: 100%
+	100%
+		top: 0 
+
+@keyframes from-top-to-center
+	0%
+		top: -100%
+	100%
+		top: 0
+
+@mixin animate($name, $timing: ease-out, $duration: 2s)
+	animation-name: $name
+	animation-timing-function: $timing
+	animation-duration: $duration
+
+.center-to-top
+	+animate(from-center-to-top)
+
+.bottom-to-center
+	+animate(from-bottom-to-center)
+
+.top-to-center
+	+animate(from-top-to-center)
+
+.center-to-bottom
+	+animate(from-center-to-bottom)
+

@@ -1,0 +1,32 @@
+.panel
+	position: absolute
+	top: 70px
+	left: -150px
+	transition: left .3s ease
+	min-height: 100vh
+	min-width: 100px
+	background-color: $accent-color
+	text-align: center
+	&__item
+		margin-bottom: 20px
+		padding: 0 10px
+		cursor: pointer
+		svg
+			width: 70px
+			height: 70px
+			display: block
+			margin: 0 auto
+		&:hover
+			.panel__text
+				color: #fff				
+	&__text
+		color: rgba(#fff, .75)
+		font-weight: bold
+		font-size: 18px
+		transition: color .3s ease
+
+.panel__hide
+	margin-right: 50px
+	transition: transform .3s ease
+	transform: rotate(-90deg)
+

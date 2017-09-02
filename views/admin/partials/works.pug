@@ -1,0 +1,19 @@
+section.admin-tabs__item#works
+	h3.admin-tabs__title.admin-tabs__title_1 Страница «Мои работы»
+	h4.admin-tabs__title.admin-tabs__title_2 Добавить работу
+	.flex-container_row
+		form.admin-works-add(action="/works/add")
+			input.admin__input-text#name(type="text", name="name", placeholder="Название проекта")
+			input.admin__input-text#description(type="text", name="description", placeholder="Описание")
+			input.admin__input-text#link(type="text", name="link", placeholder="Ссылка")
+			label.admin-file Загрузить картинку
+				svg.admin-file__icon
+					include ../../../public/images/icons/file.svg
+				input.admin-file__input#photo(type="file" name="photo" value="")
+			button.btn.admin__button(type="submit") Добавить
+		ul.admin-works__list
+			if data.works
+				each work in data.works
+					li.admin-works__item 
+						span.admin-works__name= work.name
+						button.btn.btn_small.button_delete-work(data-id=work._id) Удалить 

@@ -1,0 +1,104 @@
+@import "../_tools/common"
+@import "../_components/arrows"
+@import "../_partials/author"
+@import "../_components/hamburger"
+
+.blog
+	display: flex
+	justify-content: flex-end
+	background-color: #f4f5f0
+	&__sidebar
+		flex: 0 0 35%
+		text-align: right
+		padding-right: 15px
+		padding-top: 60px
+		background-color: #f4f5f0
+	&__main
+		flex: 0 0 65%
+		box-sizing: border-box
+		padding-right: 15%
+		padding-left: 3%
+		padding-top: 60px
+		background-color: #f4f5f0
+
+
+.blog-sidebar
+	&__toggle
+		display: none
+	&__item
+		width: 70%
+		margin-left: 30%
+		margin-bottom: 10px
+	&__link
+		padding: 8px 17px
+		border-right: 3px solid transparent
+		color: $foreground-color
+		transition: all .35s ease
+		font-weight: 500
+		&:hover, &_active
+			border-color: $accent-color
+			color: $accent-color
+			font-weight: 700
+
+.blog-article
+	margin-bottom: 50px
+	padding-bottom: 50px
+	border-bottom: 5px solid rgba($foreground-color, .15)
+	&:last-child
+		border-bottom: none
+	&__title
+		text-align: left
+		text-transform: none
+		margin-bottom: 15px
+		&::after
+			display: none
+	&__time
+		display: block
+		margin-bottom: 15px
+		color: $accent-color
+	&__text
+		margin-bottom: 15px
+	&__buttons
+		text-align: right
+		padding: 0 50px
+		.btn
+			font-size: 14px
+
+@media only screen and (max-width : 1200px)
+	.blog
+		&__main
+			flex-basis: 100%
+		&-sidebar
+			left: -295px
+			background-color: $accent-color
+			position: fixed
+			width: 280px
+			top: 0
+			bottom: 0
+			z-index: 100
+			transition: left 1s ease
+			&_open
+				left: 0
+			&__toggle
+				display: block
+				position: absolute
+				top: 50%
+				margin-top: -30px
+				right: -9px
+				width: 60px
+				height: 60px
+				border-radius: 50%
+				background-color: $accent-color
+				z-index: -1
+			&__link
+				color: #fff
+				font-size: 14px
+				opacity: .7
+				&:hover, &_active
+					color: #fff
+					opacity: 1
+
+
+
+
+

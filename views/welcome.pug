@@ -1,0 +1,38 @@
+extends layout.pug
+
+block page
+	include partials/preloader.pug
+	.welcome(style="background-image: url(/images/bg-forest.jpg)")
+		.welcome__top-line
+			a.btn.btn_transparent.btn-authorization(href="#") Авторизоваться
+		.welcome__main
+			.welcome__hello.author
+				include partials/author.pug
+				include partials/social.pug
+				nav.author__navigation
+					ul.nav
+						li.nav__item: a.nav__link(href="/works") Мои работы
+						li.nav__item: a.nav__link(href="/about") Обо мне
+						li.nav__item: a.nav__link(href="/blog") Блог
+			.welcome__authorization.authorization
+				h3.authorization__title.title Авторизуйтесь
+				form.authorization__form#login-form(method="POST", action='/login')
+					label.authorization__label.authorization__label-login
+						input.authorization__input(type="email", name="email", placeholder="E-Mail")
+					label.authorization__label.authorization__label-password
+						input.authorization__input(type="password", name="password", placeholder="Пароль")
+					//label.authorization__label.authorization__label-check(for="isPerson") Я человек
+						input.authorization__check(id="isPerson",type="checkbox", name="isPerson")
+					//span.authorization__question Вы точно не робот?
+					//.authorization__radio-group
+						label.authorization__label.authorization__label-radio.authorization__label-radio_active(for="yes") Да
+							input.authorization__radio(id="yes",value="yes",type="radio", name="answer")
+						label.authorization__label.authorization__label-radio(for="no") Не уверен
+							input.authorization__radio(id="no",value="no",type="radio", name="answer")
+				nav.authorization__navigation
+					ul.nav
+						li.nav__item: a.nav__link.btn_flip(href="#welcome") На главную
+						li.nav__item: a.nav__link(href="#")#login Войти
+		.welcome__footer
+			span.copyrights © Кузина Ксения | создано с любовью | 2017
+

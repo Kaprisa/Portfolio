@@ -1,0 +1,55 @@
+extends layout.pug
+
+block page
+	.admin
+		header.admin__header
+			.admin__top-line
+				h2.admin__title Панель администрирования
+				a.admin__back(href="/") Вернуться на сайт
+			nav.admin-navigation
+				ul.admin-navigation__list
+					li(class=(title == 'Admin about') ? 'admin-navigation__item admin-navigation__item_active' : 'admin-navigation__item'): a.admin-navigation__link(href="../admin/about") Обо мне
+					li(class=(title == 'Admin blog') ? 'admin-navigation__item admin-navigation__item_active' : 'admin-navigation__item'): a.admin-navigation__link(href="../admin/blog") Блог
+					li(class=(title == 'Admin works') ? 'admin-navigation__item admin-navigation__item_active' : 'admin-navigation__item'): a.admin-navigation__link(href="../admin/works") Мои работы
+		main.admin-tabs
+			section(class=(title == 'Admin about') ? 'admin-tabs__item admin-tabs__item_active' : 'admin-tabs__item')
+				h3.admin-tabs__title.admin-tabs__title_1 Страница "Обо мне" 
+				form.admin-skills-save(action='#')
+					if skills
+						each skillsCat, sectionName in skills
+							.admin-tabs__section
+								span.admin-tabs__title.admin-tabs__title_2= sectionName
+									table.admin-skills
+										each value, skill in skillsCat
+											colgroup
+												col.admin-skills__name-col
+												col.admin-skills__percent-col
+											tr
+												td
+													span.admin-skills__name= skill
+												td
+													input.admin__input-text.admin__input-text_small.admin-skills__input-text(data-category=sectionName, data-skill=skill, value=value)
+					button.btn.admin__button(type="submit") Сохранить 
+			section(class=(title == 'Admin blog') ? 'admin-tabs__item admin-tabs__item_active' : 'admin-tabs__item')
+				h3.admin-tabs__title.admin-tabs__title_1 Страница «Блог»
+				h4.admin-tabs__title.admin-tabs__title_2 Добавить запись
+				form.admin-blog-add(action="/admin/post",method="POST")
+					input.admin__input-text(type="text",name="title",placeholder="Название")
+					input.admin__input-text(type="text",name="date",placeholder="Дата")
+					textarea.admin__input-text.admin__input-text_textarea(type="text",name="text",placeholder="Содержание")
+					button.btn.admin__button(type="submit") Добавить
+			section(class=(title == 'Admin works') ? 'admin-tabs__item admin-tabs__item_active' : 'admin-tabs__item')
+				h3.admin-tabs__title.admin-tabs__title_1 Страница «Мои работы»
+				h4.admin-tabs__title.admin-tabs__title_2 Добавить работу
+				form.admin-works-add(action="/admin/works")
+					input.admin__input-text(type="text", name="name", placeholder="Название проекта")
+					input.admin__input-text(type="text", name="description", placeholder="Описание")
+					input.admin__input-text(type="text", name="link", placeholder="Ссылка")
+					label.admin-file Загрузить картинку
+						svg.admin-file__icon
+							include ../public/images/icons/file.svg
+						input.admin-file__input(type="file",name="image",value="")
+					button.btn.admin__button(type="submit") Добавить
+		.admin-popup.popup
+			.admin-popup__content hello
+			button.btn-close

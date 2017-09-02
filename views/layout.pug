@@ -1,0 +1,23 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='theme-color' content='#ffffff')
+    meta(name='csrf-token', content=_csrf)
+    title Kaprisa
+    block styles
+      if name
+        link(rel="stylesheet", href=`/dist/css/${name}.css`)
+
+body.page
+  block page
+  block scripts
+    script(src='/dist/js/common.js')
+    if name && name === 'about'
+      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
+    if name
+      script(src=`/dist/js/${name}.js`)
+
+

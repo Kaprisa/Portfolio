@@ -1,0 +1,22 @@
+section.admin-tabs__item#about
+	h3.admin-tabs__title.admin-tabs__title_1 Страница "Обо мне" 
+	form.admin-skills-save(action='/skills/update' method="POST")
+		if data.skills
+			each skillsSection in data.skills
+				.admin-tabs__section
+					include ../components/skills-col
+		.admin__buttons
+			button.btn.admin__button.btn_save-skills(type="submit") Сохранить
+			button.btn.admin__button.btn_add-skills(type="button") Добавить навыки
+.popup.admin-skills__popup
+	.skills-editor
+		h4.skills-editor__title Редактор навыков				
+		form.skills-editor__form(action="/skills/update")
+			.skills-editor__wrapper
+				label.skills-editor__label(for="category") Категория:
+				input.skills-editor__input(type="text", name="category")
+				button.btn.btn_add-skill(type="button") Добавить навык
+			ul.skills-editor__list
+			button.btn.admin__button.btn_save-skills(type="submit") Сохранить
+			button.btn.admin__button.btn_delete-skills(type="button") Удалить категорию
+	button.btn-close(type="button")

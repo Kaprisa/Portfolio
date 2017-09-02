@@ -1,0 +1,57 @@
+$max: 12
+$size: 120px
+$fill: #d766c8
+$fill2: #0e1bec
+$angle: 360/$max
+
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	background-color: $accent-color
+	z-index: 1000
+	&-svg
+		position: absolute
+		top: 50%
+		left: 50%
+		margin-left: -$size/2
+		margin-top: -$size/2
+		height: $size
+		width: $size
+		&__circles
+			fill: $fill
+		&__circle
+			transform-origin: $size/2 $size/2
+			animation: 1.5s linear infinite
+			animation-name: colors, opacity
+			@for $item from 1 through $max
+				&:nth-child(#{$max}n + #{$item})	
+					transform: rotate(#{-$angle*$item}deg) translate(10px, 10px) scale(.85)	
+					animation-delay: -#{$item/10}s
+			@for $item from 1 through $max
+				&:nth-child(#{$max}n + #{$item}) .preloader-svg__use
+					animation-delay: -#{$item/10}s
+		&__use
+			animation: 1.5s linear infinite
+			animation-name: transform
+
+@keyframes opacity
+	0% 
+		fill-opacity: 1
+
+	75% 
+		fill-opacity: 0
+
+@keyframes colors
+	0%
+		fill: $fill
+	50%
+		fill: $fill2
+
+@keyframes transform
+	50%
+		transform: scale(.7) translate(15px,15px)
+	75%
+		transform: scale(1.4) translate(0,0)

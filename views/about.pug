@@ -1,0 +1,48 @@
+extends layout.pug
+
+block page
+	include partials/preloader.pug
+	include partials/header.pug
+	section.about
+		.about-intro
+			h2.about-intro__title.title.title_big Обо мне
+			img.about-intro__photo(src="/images/about-img.jpg", alt="Фото")
+			h3.about-intro__title.title.title_50 Кто я?
+			p.about-intro__text Я веб разработчик из Иркутска. Мне 18 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+			p.about-intro__text Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+		.about-skills.skills
+			h3.skills__title.title.title_50 
+				|Чем я могу быть 
+				br
+				|вам полезна?
+			p.skills__text Я FullStack разработчик. Стремлюсь получить как можно больше навыков в области web разработки. Но давайте по порядку.
+			if skills
+				each skillsSection in skills
+					.skills__category
+						h4.title.skills__category-name= skillsSection.category
+						ul.skills__list
+							each skill in skillsSection.skills
+								li.skills__item(data-percent= skill.percent) 
+									svg.skills__progress(height="100%", width="100%")
+										circle.skills__circle_path(cx="50%", cy="50%", r="50%")
+										circle.skills__circle_fill(cx="50%", cy="50%", r="50%")
+									span.skills__name= skill.name
+	section.contacts
+		.contacts__map#map
+		.contacts__box
+			.contacts__title.title.title_50 Контакты
+			ul.contacts__list
+				li.contacts__item
+					span.contacts__icon
+						include ../public/images/icons/envelope.svg
+					a.contacts__link(href="https://mail.google.com" target="_blank") Kaprisa57@gmail.com
+				li.contacts__item
+					span.contacts__icon
+						include ../public/images/icons/phone.svg
+					span.contacts__phone +7 904 137 57 30
+				li.contacts__item
+					span.contacts__icon
+						include ../public/images/icons/map_marker.svg
+					span.contacts__city Иркутск
+		include partials/footer.pug
+		
