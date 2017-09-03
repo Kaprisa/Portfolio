@@ -10,6 +10,10 @@ function slider(){
   $('.slider__name').innerHTML = slides[1].getAttribute('data-name');
   $('.slider__use').innerHTML = slides[1].getAttribute('data-use');
   $('.slider__link').setAttribute('href', slides[1].getAttribute('data-link') );
+  $('.slider__controls_prev').querySelector('.slider__image_current').style.cssText = `background-image: url(${slides[0].getAttribute('data-img')})`;
+  $('.slider__controls_prev').querySelector('.slider__image_next').style.cssText = `background-image: url(${slides[0].getAttribute('data-img')})`;
+  $('.slider__controls_next').querySelector('.slider__image_current').style.cssText = `background-image: url(${slides[2].getAttribute('data-img')})`;
+  $('.slider__controls_next').querySelector('.slider__image_next').style.cssText = `background-image: url(${slides[2].getAttribute('data-img')})`;
 
   function validate(num) {
       let result;

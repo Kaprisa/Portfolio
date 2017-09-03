@@ -3,18 +3,11 @@ exports.catchErrors = (fn) => {
     return fn(req, res, next).catch(next);
   };
 };
+
 exports.notFound = (req, res, next) => {
   const err = new Error('Page not found');
   err.status = 404;
   next(err);
-};
-
-exports.flashValidationErrors = (err, req, res, next) => {
-  if (err.status) return next(err);
-  if (!err.errors) return res.redirect('back');
-  const errorKeys = Object.keys(err.errors);
-  errorKeys.forEach(key => req.flash('error', err.errors[key].message));
-  res.redirect('back');
 };
 
 exports.developmentErrors = (err, req, res, next) => {

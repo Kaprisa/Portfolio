@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const promisify = require('es6-promisify');
-const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
@@ -42,7 +41,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.h = helpers;
@@ -61,7 +59,6 @@ app.use('/', routes);
 
 app.use(errorHandlers.notFound);
 
-app.use(errorHandlers.flashValidationErrors);
 
 if (app.get('env') === 'development') {
   app.use(errorHandlers.developmentErrors);

@@ -11,13 +11,14 @@
   "scripts": {
     "start": "node ./start.js",
     "dev": "webpack-dev-server --open --env development",
-    "watch": "nodemon ./start.js --ignore ./public"
+    "watch": "nodemon ./start.js --ignore ./public",
+    "webpack": "webpack --env development --watch",
+    "webprod": "webpack --env production"
   },
   "browserslist": "last 2 versions",
   "dependencies": {
     "axios": "0.15.3",
     "body-parser": "1.17.1",
-    "connect-flash": "0.1.1",
     "connect-mongo": "1.3.2",
     "cookie-parser": "1.4.3",
     "dompurify": "0.8.5",

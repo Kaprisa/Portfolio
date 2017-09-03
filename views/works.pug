@@ -5,30 +5,30 @@ block page
 	include partials/header.pug
 	section.works
 		h2.works__title.title.title_big Мои работы
-		.works__slider.slider
-			.slider__description
-				h3.title.slider__name MrBurger
-				span.slider__use html, css, javascript
-				a.btn.slider__link(href="#", target="_blank") Посмотреть сайт
-			.slider__main
-				ul.slider__list
-					if works
+		if works
+			.works__slider.slider
+				.slider__description
+					h3.title.slider__name= works[1].name
+					span.slider__use= works[1].description
+					a.btn.slider__link(href=works[1].link, target="_blank") Посмотреть сайт
+				.slider__main
+					ul.slider__list
 						each work in works
 							li.slider__item(data-name=work.name, data-use=work.description, data-link= work.link, data-img=`/uploads/${work.photo}`)
 								img.slider__img(src=`/uploads/${work.photo}` alt= work.name)
-			.slider__controls
-				.slider__controls_prev
-					.slider__wrapper
-						span.slider__image_next
-						span.slider__image_current
-						.slider__arrow.slider__arrow_prev
-							include ../public/images/icons/arrow_down.svg
-				.slider__controls_next
-					.slider__wrapper
-						span.slider__image_current
-						span.slider__image_next
-						.slider__arrow.slider__arrow_next
-							include ../public/images/icons/arrow_up.svg
+				.slider__controls
+					.slider__controls_prev
+						.slider__wrapper
+							span.slider__image_next
+							span.slider__image_current
+							.slider__arrow.slider__arrow_prev
+								include ../public/images/icons/arrow_down.svg
+					.slider__controls_next
+						.slider__wrapper
+							span.slider__image_current
+							span.slider__image_next
+							.slider__arrow.slider__arrow_next
+								include ../public/images/icons/arrow_up.svg
 		.works__main(style="background-image: url(/images/bg-ground.jpg)")
 			.works__wrapper
 				.works__reviews.reviews
