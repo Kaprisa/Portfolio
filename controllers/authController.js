@@ -43,9 +43,7 @@ exports.isAdmin = (req, res, next) => {
 
 exports.login = passport.authenticate('local', {
 	failureRedirect: '/login',
-	failureFlash: 'Failed login!',
-	successRedirect: '/admin',
-	successFlash: 'You are now logged in'
+	successRedirect: '/admin'
 });
 
 exports.logout = (req, res) => {
